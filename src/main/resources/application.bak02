@@ -1,0 +1,48 @@
+server:
+   port: 80
+   
+application:
+   version: 1.0.0
+   name: hr-service
+   
+logging:
+   pattern:
+      console: '%d{yyyy-MM-dd HH:mm:ss} 처리시간:%r 로그레벨:%p 파일명:%F %n 클래스명:%C 함수명:%M 라인수:%L %n  %m %n%n'
+   level:
+      org:
+         hibernate.type.descriptor.sql: trace
+      com:
+          mz.hr: debug
+      
+spring:
+   main:
+      banner-mode: off
+   profiles:
+      active: dev
+   h2:
+      console:
+         enabled: true
+         path: /h2-console
+   datasource:
+      driver-class-name: org.h2.Driver  
+      url: jdbc:h2:mem:hrdb        #  url: jdbc:h2:tcp://localhost:hrdb
+      username: sa
+      password: 
+   jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+         ddl-auto: create # drop -> create -> alter  -> drop(종료) | create-drop, create, update, validate, none
+      properties:
+         hibernate:
+            format_sql: true
+#            show_sql: true
+#            use_sql_comments: true
+      defer-datasource-initialization: true
+            
+            
+	spring.jpa.database-platform=com.mz.ht.config.SQLDialect
+	spring.jpa.hibernate.ddl-auto=update
+	spring.datasource.driver-class-name = org.sqlite.JDBC
+ 	spring.datasource.url = jdbc:sqlite:hrdb.db
+ 	spring.datasource.username = admin
+	spring.datasource.password = admin 
