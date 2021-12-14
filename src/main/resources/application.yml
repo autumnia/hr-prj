@@ -19,6 +19,11 @@ spring:
       banner-mode: off
    profiles:
       active: dev
+   thymeleaf:
+      cache: false   
+   devtools:
+      livereload:
+         enabled: true   
    h2:
       console:
          enabled: true
