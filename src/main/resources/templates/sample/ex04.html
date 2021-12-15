@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/mainLayout}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+ 	<style>
+    	.error {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+<!-- 사용자 js 추가 -->
+<th:block layout:fragment="js">
+</th:block>
+
+<div layout:fragment="content">
+	<h1>멤버 리스트 출력 예제</h1>
+	
+	<table border="1">
+	    <thead>
+	    <tr>
+	        <td>순번</td>
+	        <td>이름</td>
+	        <td>이메일</td>
+	        <td>권한</td>
+	        <td>등록일</td>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr th:each="member, status: ${memberList}">
+	    	<td th:if="${status.even}" th:text="짝수"></td>
+			<td th:unless="${status.even}" th:text="홀수"></td>
+	        <td th:text="${member.name}"></td>
+	        <td th:text="${member.email}"></td>
+	        <td th:text="${member.role}"></td>
+	        <td th:text="${member.createdAt}"></td>
+	    </tr>
+	    </tbody>
+	</table>
+</div>
+
+</html>
