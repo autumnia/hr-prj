@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/mainLayout}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 js 추가 -->
+<th:block layout:fragment="js">
+</th:block>
+
+<div layout:fragment="content">
+  	<h1>MZ HRM System</h1>
+    <div>
+        이름 : <span th:text="${memberDto.name}"></span>
+    </div>
+    <div>
+        이메일 : <span th:text="${memberDto.email}"></span>
+    </div>
+    <div>
+        상태 : <span th:text="${memberDto.role}"></span>
+    </div>
+    <div>
+        가입일 : <span th:text="${memberDto.createdAt}"></span>
+    </div>
+
+</div>
