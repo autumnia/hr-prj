@@ -19,6 +19,30 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class SampleController {
 
+	@GetMapping("ex06")
+	public String ex06(Model model)  throws Exception {
+		
+		return "sample/ex06";
+	}			
+	
+	@GetMapping("ex05")
+	public String ex05(Model model)  throws Exception {
+		List<MemberDto> memberList = new ArrayList();
+		
+		for( int i=1; i<=10; i++ ) {
+			MemberDto memberDto = new MemberDto();
+			memberDto.setId( new Long(i) );
+			memberDto.setName("김가을" + i);
+			memberDto.setEmail("kke" + i + "@mz.co.kr");
+			memberDto.setRole(UserRoleStatus.USER);
+			memberDto.setCreatedAt(LocalDateTime.now());
+			memberList.add( memberDto );
+		}
+		
+		model.addAttribute("memberList", memberList);
+		return "sample/ex05";
+	}		
+	
 	@GetMapping("ex04")
 	public String ex04(Model model)  throws Exception {
 		List<MemberDto> memberList = new ArrayList();

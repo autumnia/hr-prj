@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/mainLayout}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+ 	<style>
+    	.error {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+<!-- 사용자 js 추가 -->
+<th:block layout:fragment="js">
+</th:block>
+
+<div layout:fragment="content">
+	<h1>멤버 리스트 출력 예제</h1>
+	
+	<div>
+		<a th:href="@{/sample/ex01}">예제 1 페이지 이동</a>
+	</div>
+
+	<div>
+		<a th:href="@{https://www.thymeleaf.org/}">thymeleaf 공식 페이지로 이동</a>
+	</div>	
+</div>
+
+</html>
